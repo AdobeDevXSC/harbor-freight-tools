@@ -521,9 +521,9 @@ await window.hlx.plugins.run('loadLazy', pluginContext);
     toClassName,
   };
 
-  // eslint-disable-next-line import/no-relative-packages
-  const { initConversionTracking } = await import('../plugins/rum-conversion/src/index.js');
-  await initConversionTracking.call(context, document);
+  // // eslint-disable-next-line import/no-relative-packages
+  // const { initConversionTracking } = await import('../plugins/rum-conversion/src/index.js');
+  // await initConversionTracking.call(context, document);
 
   	// Add below snippet at the end of the lazy phase
 	if ((getMetadata('experiment')
