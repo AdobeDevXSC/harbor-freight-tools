@@ -198,6 +198,12 @@ main .section {
   margin-bottom: 20px;
 }
 
+main .section > div > h5 {
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0;
+}
+
 @media (width >= 900px) {
   .section > div {
     max-width: 1280px;
@@ -211,13 +217,17 @@ main .section.highlight {
   background-color: var(--light-color);
 }
 
+main .section.white-background > div {
+  background-color: #fff;
+}
+
 /* Experimentation Widget Styling */
 .hlx-preview-overlay .hlx-badge {
 	padding: 1rem 2rem;
 	font-size: 18px;
 	line-height: normal;
-  }
+}
   
-  .hlx-preview-overlay .hlx-badge .hlx-popup * {
-	font-size: 14px;
-  }
+.hlx-preview-overlay .hlx-badge .hlx-popup * {
+  font-size: 14px;
+}

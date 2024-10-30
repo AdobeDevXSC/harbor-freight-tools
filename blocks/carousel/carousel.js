@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import BrandsCarousel from './brands-carousel.js';
 
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
@@ -110,11 +111,13 @@ async function fetchJson(link) {
 let carouselId = 0;
 export default async function decorate(block) {
   carouselId += 1;
-  const isJSONCarousel = block.classList.contains('cards');
+  const isBrandsCarousel = block.classList.contains('brands');
+  const isProductCarousel = block.classList.contains('product');
+
 
   block.setAttribute('id', `carousel-${carouselId}`);
   const rows = block.querySelectorAll(':scope > div');
-  const isSingleSlide = isJSONCarousel.length < 2 && rows.length < 2;
+  const isSingleSlide = (isBrandsCarousel.length < 2 || isProductCarousel.length < 2) && rows.length < 2;
 
   block.setAttribute('role', 'region');
   block.setAttribute('aria-roledescription', 'Carousel');
@@ -145,36 +148,13 @@ export default async function decorate(block) {
     container.append(slideNavButtons);
   }
 
-  if(isJSONCarousel){  
-    console.log("isJSONCarousel")
+  if(isBrandsCarousel || isProductCarousel){  
 	  const link = block.querySelector('a');
   	const cardData = await fetchJson(link);
 
-    cardData.forEach((card, idx) => {
-      const picture = createOptimizedPicture(card.image, card.title, false, [{ width: 320 }]);
-      picture.lastElementChild.width = '320';
-      picture.lastElementChild.height = '180';
-
-      const createdSlide = document.createElement('li');
-      createdSlide.dataset.slideIndex = idx;
-      createdSlide.setAttribute('id', `carousel-${carouselId}-slide-${idx}`);
-      createdSlide.classList.add('carousel-slide');
-
-      const labeledBy = createdSlide.querySelector('h1, h2, h3, h4, h5, h6');
-      if (labeledBy) {
-        createdSlide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
-      }
-
-      slidesWrapper.append(createdSlide);
-
-      if (slideIndicators) {
-        const indicator = document.createElement('li');
-        indicator.classList.add('carousel-slide-indicator');
-        indicator.dataset.targetSlide = idx;
-        indicator.innerHTML = `<button type="button"><span>Show Slide ${idx + 1} of ${cardData.length}</span></button>`;
-        slideIndicators.append(indicator);
-      }
-    });
+    if (isBrandsCarousel) BrandsCarousel(carouselId, cardData, slidesWrapper, slideIndicators);
+    // if (isProductCarousel) ProductCarousel(carouselId, cardData, slidesWrapper, slideIndicators);
+    
   } else {
     //non-json (initiated for banner carousel)
     rows.forEach((row, idx) => {

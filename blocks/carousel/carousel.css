@@ -238,8 +238,8 @@
 
 /*** ---------- brands --------- ***/
 .carousel.brands {
-  background-color: var(--background-color);
-}
+  background-color: #fff;
+} 
 
 /* hide service link */
 .carousel.brands > div:nth-of-type(2) {
