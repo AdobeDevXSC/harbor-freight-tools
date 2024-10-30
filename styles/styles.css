@@ -194,18 +194,13 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
-}
-
-@media (width >= 600px) {
-  main .section {
-    padding: 64px 32px;
-  }
+  padding: 0 15px;
+  margin-bottom: 20px;
 }
 
 @media (width >= 900px) {
   .section > div {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: auto;
   }
 }
