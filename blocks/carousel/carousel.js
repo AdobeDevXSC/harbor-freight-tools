@@ -1,5 +1,5 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
 import BrandsCarousel from './brands-carousel.js';
+import ProductCarousel from './product-carousel.js';
 
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
@@ -55,6 +55,7 @@ function bindEvents(block) {
   });
 
   block.querySelector('.slide-prev').addEventListener('click', () => {
+    console.log("prev nav clicked")
     showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
   });
   block.querySelector('.slide-next').addEventListener('click', () => {
@@ -153,8 +154,8 @@ export default async function decorate(block) {
   	const cardData = await fetchJson(link);
 
     if (isBrandsCarousel) BrandsCarousel(carouselId, cardData, slidesWrapper, slideIndicators);
-    // if (isProductCarousel) ProductCarousel(carouselId, cardData, slidesWrapper, slideIndicators);
-    
+    if (isProductCarousel) ProductCarousel(carouselId, cardData, slidesWrapper, slideIndicators);
+
   } else {
     //non-json (initiated for banner carousel)
     rows.forEach((row, idx) => {
