@@ -193,8 +193,6 @@ export default async function decorate(block) {
     });
   }
 
-  console.log(".nav-sections: ", navSections)
-
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');

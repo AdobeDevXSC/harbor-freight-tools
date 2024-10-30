@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="50px" viewBox="0 0 34 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mobile-screen</title>
+    <g id="Main-Footer-FINAL" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer-1280-(Current-Logo)---FINAL" transform="translate(-1320, -292)" fill="#CD2215" fill-rule="nonzero">
+            <g id="footer" transform="translate(0, 31)">
+                <g id="middle" transform="translate(0, 181)">
+                    <g id="helpful-links" transform="translate(459, 36)">
+                        <g id="Group-3" transform="translate(0, 41)">
+                            <g id="App-Copy" transform="translate(850, 3)">
+                                <g id="mobile-screen" transform="translate(11, 0)">
+                                    <path d="M0,6.25 C0,2.80273438 2.75177557,0 6.13636364,0 L27.6136364,0 C30.9982244,0 33.75,2.80273438 33.75,6.25 L33.75,43.75 C33.75,47.1972656 30.9982244,50 27.6136364,50 L6.13636364,50 C2.75177557,50 0,47.1972656 0,43.75 L0,6.25 Z M12.2727273,43.75 C12.2727273,44.609375 12.9630682,45.3125 13.8068182,45.3125 L19.9431818,45.3125 C20.7869318,45.3125 21.4772727,44.609375 21.4772727,43.75 C21.4772727,42.890625 20.7869318,42.1875 19.9431818,42.1875 L13.8068182,42.1875 C12.9630682,42.1875 12.2727273,42.890625 12.2727273,43.75 Z M27.6136364,6.25 L6.13636364,6.25 L6.13636364,37.5 L27.6136364,37.5 L27.6136364,6.25 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
