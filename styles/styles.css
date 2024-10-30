@@ -40,6 +40,8 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  --max-width: 1600px;
 }
 
 @font-face {
@@ -206,7 +208,7 @@ main .section > div > h5 {
 
 @media (width >= 900px) {
   .section > div {
-    max-width: 1280px;
+    max-width: var(--max-width);
     margin: auto;
   }
 }
@@ -224,13 +226,18 @@ main .section.white-background > div {
 /*** ---------- combine section --------- ***/
 .section.combine {
   display: flex;
-  max-width: 1280px;
+  max-width: var(--max-width);
   margin: 0 auto 20px;
 }
 
 .section.combine > .default-content-wrapper,
 .section.combine br {
   display: none;
+  margin: auto 0;
+}
+
+.section.combine > .default-content-wrapper {
+  width: 20%;
 }
 
 .section.combine > .default-content-wrapper p {
@@ -239,10 +246,16 @@ main .section.white-background > div {
 
 .section.combine .default-content-wrapper img {
   margin-top: 10px;
-  min-height: 470px;
+  max-height: 470px;
+  object-fit: fill;
 }
 
 .section.combine .carousel-wrapper {
+  width: 100%;
+  margin: auto 0;
+}
+
+.section .default-content-wrapper img {
   width: 100%;
 }
 

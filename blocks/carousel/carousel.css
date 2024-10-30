@@ -34,7 +34,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  min-height: 380px;
+  min-height: 450px;
 }
 
 .carousel.banner .carousel-slide:has(.carousel-slide-content[data-align="center"]) {
@@ -53,7 +53,7 @@
 .carousel.banner .carousel-slide .carousel-slide-image picture > img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .carousel.banner .carousel-slide .carousel-slide-image p:first-of-type {
@@ -272,7 +272,7 @@
 }
 
 .carousel.brands .carousel-slide {
-  flex: 0 0 18.85%;
+  flex: 0 0 16%;
   scroll-snap-align: start;
   visibility: visible;
   width: 100%;
@@ -583,7 +583,7 @@
 
 @media (width > 1290px) {
   .carousel.product .carousel-slide {
-    flex: 0 0 24%;
+    flex: 0 0 25%;
   }
 }
 
