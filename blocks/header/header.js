@@ -193,6 +193,8 @@ export default async function decorate(block) {
     });
   }
 
+  console.log(".nav-sections: ", navSections)
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -214,7 +216,20 @@ export default async function decorate(block) {
   navElements[0].classList.add('top-nav');
   navElements[0].classList.remove('section');
   navElements[1].classList.add('bottom-nav');
-  
+
+  const searchItem = navSections.querySelector('ul li:nth-child(4)');
+  const span = searchItem.querySelector('span');
+  const hasSearchImg = span.classList.contains('icon-search');
+  if (hasSearchImg) {
+    // Create the input element with the desired attributes
+    const inputElement = document.createElement('input');
+    inputElement.type = 'text';
+    inputElement.placeholder = 'What are you looking for today?';
+
+    // Insert the input element before the span inside the li
+    searchItem.prepend(inputElement);
+  }
+
   navWrapper.prepend(navElements[0]);
   navWrapper.append(navElements[1]);
   block.append(navWrapper);
@@ -223,3 +238,4 @@ export default async function decorate(block) {
     navWrapper.append(await buildBreadcrumbs());
   }
 }
+

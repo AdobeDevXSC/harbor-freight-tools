@@ -3,8 +3,13 @@ header .nav-wrapper {
 	background-color: var(--background-color);
 	width: 100%;
 	z-index: 2;
-	/* position: fixed; */
   }
+
+	@media (width <= 900px) {
+		header .nav-wrapper {
+			position: fixed;
+		}
+	}
   
   header nav#nav {
 	box-sizing: border-box;
@@ -16,7 +21,7 @@ header .nav-wrapper {
 	gap: 0 2em;
 	margin: auto;
 	max-width: 1340px;
-	height: var(--nav-height);
+	/* height: var(--nav-height); */
 	padding: 0 1rem;
 	font-family: var(--body-font-family);
   }
@@ -27,8 +32,12 @@ header .nav-wrapper {
 	  "sections sections" 1fr
 	  "tools tools" var(--nav-height) / auto 1fr;
 	overflow-y: auto;
-	min-height: 100vh;
+	min-height: 97vh;
   }
+
+	header br {
+		display: none;
+	}
   
   @media (width >= 600px) {
 	header nav#nav {
@@ -45,6 +54,7 @@ header .nav-wrapper {
 	header nav#nav[aria-expanded="true"] {
 	  min-height: 0;
 	  overflow: visible;
+		padding: 15px 2rem;
 	}
   }
   
@@ -57,6 +67,10 @@ header .nav-wrapper {
 	color: currentcolor;
 	display: block;
   }
+
+	header nav#nav a:any-link:hover {
+		text-decoration: none;
+	}
   
   /* hamburger */
   header nav#nav .nav-hamburger {
@@ -156,6 +170,7 @@ header .nav-wrapper {
 	@media (width >= 900px) {
 		header nav#nav .nav-brand img {
 			width: 228px;
+			margin-right: 2rem;
 		}
 	}
   
@@ -178,6 +193,9 @@ header .nav-wrapper {
 	padding-left: 0;
 	font-size: var(--body-font-size-s);
 	font-weight: 500;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
   }
   
   header nav#nav .nav-sections ul > li {
@@ -191,7 +209,62 @@ header .nav-wrapper {
   header nav#nav .nav-sections ul > li > ul > li {
 	font-weight: 500;
   }
-  
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li {
+		flex: 0 1 auto;
+		position: relative;
+		font-weight: 500;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-weight: bold;
+	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li:hover {
+		color: var(--primary-color);
+		cursor: pointer;
+	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li:nth-child(4) {
+		flex-direction: row;
+		background-color: #f2f2f2;
+		border: 1px solid #ddd;
+    border-radius: 40px;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 7px 15px;
+		max-width: 100%;
+    width: 100%;
+	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li:nth-child(4) input {
+		width: 100%;
+    border: none;
+    font-size: inherit;
+    background: #0000;
+    font-weight: inherit;
+	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li:nth-child(4) input:focus {
+		outline: none;
+	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li:nth-child(4) span.icon {
+		width: auto;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    padding: 0 5px;
+    border-radius: 50%;
+	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li br {
+		display: none;
+	}
+
   @media (width >= 900px) {
 	header nav#nav .nav-sections {
 	  display: block;
@@ -236,6 +309,7 @@ header .nav-wrapper {
   
 	header nav#nav .nav-sections ul {
 	  display: flex;
+		flex-direction: row;
 	  gap: 2em;
 	  margin: 0;
 	  font-size: var(--body-font-size-xs);
@@ -244,7 +318,8 @@ header .nav-wrapper {
 	header nav#nav .nav-sections .default-content-wrapper > ul > li {
 	  flex: 0 1 auto;
 	  position: relative;
-	  font-weight: 500;
+	  font-weight: 900;
+		line-height: 1.2;
 	}
   
 	header nav#nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -278,12 +353,29 @@ header .nav-wrapper {
 	header nav#nav .nav-sections .default-content-wrapper > ul > li > ul > li {
 	  padding: 8px 0;
 	}
+
+	header nav#nav .nav-sections .default-content-wrapper > ul > li:nth-child(4) {
+		max-width: 576px;
+	}
   }
   
   /* tools */
   header nav#nav .nav-tools {
 	grid-area: tools;
   }
+
+	header nav#nav .nav-tools .default-content-wrapper{
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+	}
+
+	@media screen and (width >= 900px) {
+		header nav#nav .nav-tools {
+			display: none;
+		}
+	}
+	
   
   header nav#nav .nav-tools .button {
 	background: none;
@@ -344,17 +436,77 @@ header .nav-wrapper {
 
 	header .nav-wrapper .top-nav p {
 		margin: 0;
+		line-height: 1;
 	}
 
 	header .nav-wrapper .top-nav p a {
-    margin: 0;
+		margin: 0;
     width: 100%;
     border-radius: 0;
     background-color: var(--primary-color);
     font-size: 14px;
-    padding: 0 10px;
+    padding: 4px 10px;
 	}
 
 	/* @media (width >= 900px) {
 		
 	} */
+
+	header .nav-wrapper .bottom-nav {
+		border-top: 1px solid #ddd;
+	}
+
+	header .nav-wrapper .bottom-nav > div {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: space-between;
+	}
+
+	header .nav-wrapper .bottom-nav > div ul {
+		list-style: none;
+    padding-left: 0;
+    display: none;
+    flex-direction: row;
+    gap: 12px;
+		margin: 0;
+	}
+
+	header .nav-wrapper .bottom-nav > div ul li,
+	header .nav-wrapper .bottom-nav > div ul li a {
+		color: #333;
+    font-size: 14px;
+    font-weight: 600;
+		text-decoration: none;
+	}
+
+	header .nav-wrapper .bottom-nav > div ul li:hover,
+	header .nav-wrapper .bottom-nav > div ul li a:hover {
+		color: var(--primary-color);
+	}
+
+	header .nav-wrapper .bottom-nav p {
+		display: flex;
+    justify-content: center;
+		margin: 0;
+	}
+
+	header .nav-wrapper .bottom-nav a {
+		color: var(--primary-color);
+		text-decoration: underline;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	@media (width >= 900px) {
+		header .nav-wrapper .bottom-nav > div {
+			display: flex;
+			flex-direction: row;
+			padding: 5px 2rem;
+			max-width: 1340px;
+			box-sizing: border-box;
+		}
+
+		header .nav-wrapper .bottom-nav > div ul {
+			display: flex;
+		}
+	}
