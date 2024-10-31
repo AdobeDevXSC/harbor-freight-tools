@@ -1,7 +1,50 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
+async function fetchJson(link) {
+  const response = await fetch(link?.href);
+  if (response.ok) {
+	const jsonData = await response.json();
+	const data = jsonData?.data;
+	return data;
+  }
+	return 'an error occurred';
+}
+
+async function createDepartmentCards(block) {
+  const link = block.querySelector('a');
+  const data = await fetchJson(link);
+
+  block.innerHTML = '';
+
+  const ul = document.createElement('ul');
+
+  data.forEach((item) => {
+    const picture = createOptimizedPicture(item.Image, item.Department, false, [{ width: 200 }]);
+    picture.lastElementChild.width = '200';
+    picture.lastElementChild.height = '200';
+    const createdCard = document.createElement('li');
+    createdCard.innerHTML = `
+      <a href="${item.CTALink}" aria-label="${item.Department}">
+        <div class="cards-card-image" data-align="center">${picture.outerHTML}</div>
+        <div class="cards-card-body">
+          <div>${item.Department}</div>
+        </div>
+      </a>
+    `;
+    ul.append(createdCard);
+  });
+
+  block.append(ul);
+}
+
 export default function decorate(block) {
   const isLinks = block.classList.contains('links');
+  const isDepartments = block.classList.contains('departments');
+
+  if (isDepartments)  {
+    createDepartmentCards(block);
+    return;
+  } 
 
   /* change to ul, li */
   const ul = document.createElement('ul');
@@ -15,11 +58,11 @@ export default function decorate(block) {
       const link = row.querySelector('a');
       if (link) {
         a.href = link.href;
-        a.setAttribute('aria-label', link.href); // Set aria-label
+        a.setAttribute('aria-label', link.href);
         link.remove(); // Remove original link from row
       }
-      wrapper = a; // Set wrapper as <a>
-      li.append(a); // Append <a> to <li>
+      wrapper = a;
+      li.append(a);
     }
 
     // Move row contents into wrapper (either <li> or <a> if isLinks is true)
