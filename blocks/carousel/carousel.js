@@ -85,7 +85,8 @@ function createBannerSlide(row, slideIndex, carouselId) {
     if (colIdx !== 0) {
       const link = column.querySelector('a');
       const href = link.href;
-      column.innerHTML = `<a href=${href}></a>`
+      
+      column.innerHTML = `<a href=${href} aria-label="${link.title}"></a>`
     }
 
     slide.append(column);
