@@ -34,7 +34,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  min-height: 450px;
+  min-height: 400px;
 }
 
 .carousel.banner .carousel-slide:has(.carousel-slide-content[data-align="center"]) {
@@ -272,7 +272,7 @@
 }
 
 .carousel.brands .carousel-slide {
-  flex: 0 0 16%;
+  flex: 0 0 18.85%;
   scroll-snap-align: start;
   visibility: visible;
   width: 100%;
@@ -583,7 +583,7 @@
 
 @media (width > 1290px) {
   .carousel.product .carousel-slide {
-    flex: 0 0 25%;
+    flex: 0 0 24%;
   }
 }
 

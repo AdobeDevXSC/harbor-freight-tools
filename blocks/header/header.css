@@ -21,7 +21,7 @@ header .nav-wrapper {
 	align-items: center;
 	gap: 0 2em;
 	margin: auto;
-	max-width: 1600px;
+	max-width: 1340px;
 	/* height: var(--nav-height); */
 	padding: 0 1rem;
 	font-family: var(--body-font-family);
@@ -356,7 +356,7 @@ header .nav-wrapper {
 	}
 
 	header nav#nav .nav-sections .default-content-wrapper > ul > li:nth-child(4) {
-		max-width: 850px;
+		max-width: 576px;
 	}
   }
   
@@ -475,7 +475,7 @@ header .nav-wrapper {
 	header .nav-wrapper .bottom-nav > div ul li,
 	header .nav-wrapper .bottom-nav > div ul li a {
 		color: #333;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 		text-decoration: none;
 	}
@@ -503,7 +503,7 @@ header .nav-wrapper {
 			display: flex;
 			flex-direction: row;
 			padding: 5px 2rem;
-			max-width: 1600px;
+			max-width: 1340px;
 			box-sizing: border-box;
 		}
 

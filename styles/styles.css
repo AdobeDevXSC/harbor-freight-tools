@@ -40,8 +40,6 @@
 
   /* nav height */
   --nav-height: 64px;
-
-  --max-width: 1600px;
 }
 
 @font-face {
@@ -129,6 +127,10 @@ main pre {
   white-space: pre;
 }
 
+p {
+  margin: 0;
+}
+
 /* links */
 a:any-link {
   color: var(--link-color);
@@ -208,7 +210,7 @@ main .section > div > h5 {
 
 @media (width >= 900px) {
   .section > div {
-    max-width: var(--max-width);
+    max-width: 1280px;
     margin: auto;
   }
 }
@@ -226,7 +228,7 @@ main .section.white-background > div {
 /*** ---------- combine section --------- ***/
 .section.combine {
   display: flex;
-  max-width: var(--max-width);
+  max-width: 1280px;
   margin: 0 auto 20px;
 }
 
