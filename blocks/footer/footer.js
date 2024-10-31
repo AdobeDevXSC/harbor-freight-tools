@@ -16,5 +16,13 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  const ul = footer.querySelector('ul:first-of-type');
+  [...ul.children].forEach((li) => {
+    const a = li.querySelector('a');
+    let imgAttr = '';
+    if (a) imgAttr = a.querySelector('img').getAttribute('data-icon-name');
+    if (imgAttr) a.title = imgAttr;
+  });
+
   block.append(footer);
 }
