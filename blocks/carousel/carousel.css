@@ -54,6 +54,7 @@
   height: 100%;
   width: 100%;
   object-fit: fill;
+  aspect-ratio: auto;
 }
 
 .carousel.banner .carousel-slide .carousel-slide-image p:first-of-type {
