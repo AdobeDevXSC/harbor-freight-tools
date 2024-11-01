@@ -146,6 +146,14 @@
   .cards .cards-card-image {
     padding-top: 0;
   }
+
+  .cards:not(.links,.cards.departments) .cards-card-image {
+    width: 50%;
+  }
+
+  .cards .cards-card-body p:last-of-type.button-container a {
+    padding: 0.5rem;
+  }
   
 }
 
