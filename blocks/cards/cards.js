@@ -19,7 +19,8 @@ async function createDepartmentCards(block) {
   const ul = document.createElement('ul');
 
   data.forEach((item) => {
-    const picture = createOptimizedPicture(item.Image, item.Department, false, [{ width: 200 }]);
+    console.log("item: ", item);
+    const picture = createOptimizedPicture(item.Image, `Card - ${item.Department}`, false, [{ width: 200 }]);
     picture.lastElementChild.width = '200';
     picture.lastElementChild.height = '200';
     const createdCard = document.createElement('li');
